@@ -37,10 +37,8 @@ CONTAINER_NAME="uw_${ROBOTNAME}_${USER}"
 if ! docker container ps | grep -q ${CONTAINER_NAME}; then
     echo "Starting new container with name: ${CONTAINER_NAME}"
     $DOCKER_COMMAND run \
-    -p 4000:80 \
     -e "ENV_VAR_NAME=value" \
-    -v "/host/path:/container/path" \
-    -v "$DIR/..:/home/${USER}" \
+    -v "$HOME/chengt:/home/${USER}" \
     $DOCKER_GPU_ARGS \
     $ADDITIONAL_FLAGS \
     --user root \
