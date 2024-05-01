@@ -43,10 +43,5 @@ RUN echo "source /workspace/install/setup.bash" >> ~/.bashrc
 ENV ROS_SECURITY_KEYSTORE=/workspace/keys/keystore
 ENV ROS_SECURITY_ENABLE=true
 ENV ROS_SECURITY_STRATEGY=Enforce
-COPY generate_keys.sh /usr/local/bin/generate_keys.sh
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/generate_keys.sh
 
-ENTRYPOINT ["entrypoint.sh"]
 CMD ["bash"]

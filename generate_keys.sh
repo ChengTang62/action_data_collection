@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /opt/ros/humble/setup.bash
 KEYSTORE_DIR="/opt/ros2_keystore"
 
 if [ ! -d "$KEYSTORE_DIR" ]; then
