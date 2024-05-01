@@ -30,19 +30,19 @@ RUN apt-get update && apt-get install -y \
 RUN if [ ! -f /etc/ros/rosdep/sources.list.d/20-default.list ]; then rosdep init; fi
 RUN rosdep update
 RUN mkdir -p /workspace/src
-RUN cd /workspace && \
-    git clone https://github.com/frankaemika/libfranka.git --recursive src/libfranka
-RUN cd /workspace/src/libfranka && \
-    git checkout 0.13.2
-RUN cd /workspace/src/libfranka && \
-    mkdir build && cd build && \
-    cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF .. && \
-    cmake --build . -j$(nproc) --verbose
-RUN cd /workspace/src/libfranka/build && \
-    cpack -G DEB && \
-    dpkg -i libfranka-*.deb
-RUN cd /workspace/src && \
-    git clone https://github.com/frankaemika/franka_ros2.git
+# RUN cd /workspace && \
+#     git clone https://github.com/frankaemika/libfranka.git --recursive src/libfranka
+# RUN cd /workspace/src/libfranka && \
+#     git checkout 0.13.2
+# RUN cd /workspace/src/libfranka && \
+#     mkdir build && cd build && \
+#     cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF .. && \
+#     cmake --build . -j$(nproc) --verbose
+# RUN cd /workspace/src/libfranka/build && \
+#     cpack -G DEB && \
+#     dpkg -i libfranka-*.deb
+# RUN cd /workspace/src && \
+#     git clone https://github.com/frankaemika/franka_ros2.git
 
 RUN cd /workspace && \
     rosdep install --from-paths src --ignore-src -r -y
