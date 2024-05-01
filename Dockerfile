@@ -33,7 +33,7 @@ RUN mkdir -p /workspace/src
 RUN cd /workspace && \
     git clone https://github.com/frankaemika/libfranka.git --recursive src/libfranka
 RUN cd /workspace/src/libfranka && \
-    git checkout 0.9.2
+    git checkout 0.13.2
 RUN cd /workspace/src/libfranka && \
     mkdir build && cd build && \
     cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF .. && \
